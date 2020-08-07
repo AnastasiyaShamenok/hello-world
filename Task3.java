@@ -1,13 +1,20 @@
-package homework3;
-// Вычислить: 1+2+4+8+...+256 г.п
+package homework4;
+
+// Имеется строка с текстом. Вывести текст, составленный из последних букв всех слов.
+
+import java.util.Scanner;
 
 public class Task3 {
     public static void main(String[] args) {
-        int i;
-        int sum=0;
-        for(i=1;i<=256;i++) {
-            sum+=i;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите строку с текстом");
+        String sentence = sc.nextLine();
+        sentence = sentence.replaceAll("[!.,:;-]", "");
+        String[] words = sentence.split(" ");
+        StringBuilder newSentence = new StringBuilder();
+        for(String word : words) {
+            newSentence.append(word.charAt(word.length()-1));
         }
-        System.out.println(sum);
-        }
+        System.out.println(newSentence);
+    }
 }

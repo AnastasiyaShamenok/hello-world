@@ -1,14 +1,29 @@
-package homework3;
-//Одноклеточная амеба каждые 3 часа делится на 2 клетки.
-// Определить,сколько амеб будет через 3, 6, 9, 12,..., 24 часа
+package homework4;
+
+//Имеея строка с текстом. Подсчитать количество слов в тексте. Желательно учесть, что слова могут
+//разделяться несколькими пробелами,
+//в начале и конце текста также могут быть пробелы, но могут и отсутствовать.
+
+import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-        int a = 1;
-        int x=24;
-        for (int i = 0; i < x / 3; i++)
-            a *= 2;
-            System.out.println(a);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Введите слова одной строкой через пробел");
+        String input = sc.nextLine();
+        int count = 0;
+        input=input.trim();
+        input=input.replaceAll("\\s{2,}", " ");
+        if (input.length() != 0) {
+            count++;
+            for (int i = 0; i < input.length(); i++) {
+                if (input.charAt(i) == ' ') {
+                    count++;
+                }
+            }
         }
+        System.out.println("Вы ввели " + " " + count + "слов(а)");
     }
+}
+
 

@@ -1,15 +1,18 @@
-package homework3;
+package homework4;
 
-// Составьте программу, вычисляющую A*B, не пользуясь операцией умножения.
+//Написать программу, выполняющую поиск в строке шестнадцатеричных чисел,
+//записаных по правилам Java, с помощью регулярных выражений и вывести их на
+//страницу.
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Task4 {
     public static void main(String[] args) {
-        int a = 5;
-        int b = 4;
-        int c=a;
-            for (int d = 0; d <b-1; d++) {
-                c = c + a;
-            }
-                System.out.println(c);
-            }
+        String input = "0x5f,5,hello,0xc6 ";
+        Pattern pattern = Pattern.compile("0x[A-Fa-f0-9]{1,4}");
+        Matcher matcher = pattern.matcher(input);
+        while(matcher.find())
+            System.out.println(matcher.group());
     }
+}
